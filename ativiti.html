@@ -5,34 +5,81 @@
     <title>Hoja de Vida de jacob</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #8f0e0e;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0d0d, #1a0a5c);
+            margin: 0;
+            padding: 40px 0;
         }
+
         .contenedor {
-            width: 800px;
+            width: 850px;
             margin: auto;
-            background-color: rgb(218, 204, 204);
-            padding: 20px;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
+
         .encabezado {
             display: flex;
             align-items: center;
+            border-bottom: 2px solid #171010;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
         }
+
         .encabezado img {
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            margin-right: 20px;
+            margin-right: 30px;
+            object-fit: cover;
+            border: 5px solid #8f0e0e;
         }
+
         h1 {
             margin: 0;
+            font-size: 32px;
+            color: #8f0e0e;
         }
+
         h2 {
-            color: #333;
-            border-bottom: 1px solid #ccc;
+            margin-top: 30px;
+            color: #0f0909;
+            border-left: 5px solid #8f0e0e;
+            padding-left: 10px;
+            font-size: 20px;
         }
+
         p {
-            color: #555;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            background-color: #f4f4f4;
+            margin-bottom: 8px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        ul li:hover {
+            background-color: #200d0d;
+            color: white;
+        }
+
+        strong {
+            color: #000;
+        }
+
+        .info p {
+            margin: 5px 0;
         }
     </style>
 </head>
@@ -41,39 +88,144 @@
     <div class="contenedor">
 
         <div class="encabezado">
-            <img src="https://tse1.mm.bing.net/th/id/OIP.eU9IJch0wQyOEMvH3yEJbAHaJ4?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Foto de perfil">
-            <div>
-                <h1>yeicol Estevez Marin</h1>
-                <p>Correo: jacob.estevez00@usc.edu.co</p>
-                <p>Teléfono: 300 000 0000</p>
-                <p>Cali, Colombia</p>
+            <img src="https://img.freepik.com/fotos-premium/muneco-vudu-ojos-maliciosos-cabeza-sobre-fondo-negro_124507-52179.jpg?semt=ais_hybrid" alt="Foto de perfil">
+            <div class="info">
+                <h1>Jacob Estevez Marin</h1>
+                <p><strong>Correo:</strong> jacob.estevez00@usc.edu.co</p>
+                <p><strong>Teléfono:</strong> 317 8672620</p>
+                <p><strong>Ubicación:</strong> Cali, Colombia</p>
             </div>
         </div>
 
         <h2>Perfil Profesional</h2>
         <p>
-            Persona con gran sentido de pertenecia y.
+            Persona con gran sentido de pertenecia y Responsabilidad
         </p>
 
         <h2>Educación</h2>
         <p>
-            <strong>Nombre del estudio</strong><br>
-            Institución - Año
+            <strong>bachiller</strong><br>
+            Institucion educativa Santiago de cali - 2023
+        </p>
+        <p>
+            <strong>Tecnologia en sistemas</strong><br>
+            Universidad Santiago de cali - 2026 (5to semestre)
         </p>
 
         <h2>Experiencia Laboral</h2>
-        <p>
-            <strong>Nombre del cargo</strong><br>
-            Empresa - Año<br>
-            Descripción breve de las funciones realizadas.
-        </p>
+       
+
+
+
+
+
+
+
+ <form>
+      <label for="item">Ingresa tu Experiencia Laboral:</label>
+      <input type="text" name="item" id="item">
+      <button id="boton">Agregar</button>
+    </form>
+
+    <ul id="lista">
+
+    </ul>
+
+    <script>
+      const lista = document.getElementById("lista");
+      const texto = document.getElementById("item");
+      const boton = document.getElementById("boton");
+
+      boton.addEventListener( 'click', (event) => {       
+         event.preventDefault();
+
+         const newItem = texto.value;
+         texto.value = '';
+
+         const listItem = document.createElement("li");
+         const listText = document.createElement("span");
+         const listBtn = document.createElement("button");
+
+         listItem.appendChild(listText);
+         listText.textContent = newItem;
+
+         listItem.appendChild(listBtn);
+         listBtn.textContent = "delete";
+
+
+
+         lista.appendChild(listItem)
+
+         listBtn.addEventListener( 'click', () => {
+          lista.removeChild(listItem);
+
+         });
+
+
+         texto.focus();
+
+
+      }   );
+    </script>
+
+    
+   
+
+
+
+
+
+
 
         <h2>Habilidades</h2>
-        <ul>
-            <li>Trabajo en equipo</li>
-            <li>Responsabilidad</li>
-            <li>Manejo básico de computadoras</li>
-        </ul>
+         <form>
+      <label for="itemSkills">Ingresa tus habilidades:</label>
+      <input type="text" name="itemSkills" id="itemSkills">
+      <button id="botonSkills">Agregar</button>
+      </form>
+        
+
+    <ul id="listaSkills">
+        
+    </ul>
+
+    <script>
+      const listaSkills = document.getElementById("listaSkills");
+      const textoSkills = document.getElementById("itemSkills");
+      const botonSkills = document.getElementById("botonSkills");
+
+      botonSkills.addEventListener( 'click', (event) => {       
+         event.preventDefault();
+
+         const newItemSkills = textoSkills.value;
+         textoSkills.value = '';
+
+         const listItemSkills = document.createElement("li");
+         const listTextSkills = document.createElement("span");
+         const listBtnSkills = document.createElement("button");
+
+         listItemSkills.appendChild(listTextSkills);
+         listTextSkills.textContent = newItemSkills;
+
+         listItemSkills.appendChild(listBtnSkills);
+         listBtnSkills.textContent = "delete";
+
+
+
+         listaSkills.appendChild(listItemSkills)
+
+         listBtnSkills.addEventListener( 'click', () => {
+          listaSkills.removeChild(listItemSkills);
+
+         });
+
+
+         textoSkills.focus();
+
+
+      }   );
+
+    </script>
 
     </div>
 
